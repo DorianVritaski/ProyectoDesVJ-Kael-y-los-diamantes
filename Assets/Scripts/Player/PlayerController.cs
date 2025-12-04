@@ -1,4 +1,4 @@
-﻿﻿using UnityEngine;
+﻿using UnityEngine;
 
 public class PlayerController : MonoBehaviour {
 
@@ -7,6 +7,7 @@ public class PlayerController : MonoBehaviour {
   
     public GameObject row;
     public GameObject menu;
+    public GameObject stats;
     public GameObject controllerMobile;
     public int damagePatrols = 25;
 
@@ -26,12 +27,12 @@ public class PlayerController : MonoBehaviour {
 
             if(Input.GetKeyDown(KeyCode.Escape)) {
                 if(!menu.active) {
-                    Stats.instance.gameObject.SetActive(false);
+                    stats.SetActive(false);
                     menu.SetActive(true);
                     Time.timeScale = 0;
                 } else {
                     menu.SetActive(false);
-                    Stats.instance.gameObject.SetActive(true);
+                    stats.SetActive(true);
                     Time.timeScale = 1;
                 }
             }

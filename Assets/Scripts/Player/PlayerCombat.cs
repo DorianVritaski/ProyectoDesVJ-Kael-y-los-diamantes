@@ -40,7 +40,7 @@ public class PlayerCombat : MonoBehaviour {
         foreach(Collider2D enemy in hitEnemies) {
             enemy.GetComponent<Enemy>().TakeDamage(Stats.instance.getAttackDamage());
 
-            if(GetComponent<Stats>().power != 4)
+            if(GetComponent<Stats>().getPower() != 4)
                 GetComponent<Stats>().takePower(1);
 
             break;

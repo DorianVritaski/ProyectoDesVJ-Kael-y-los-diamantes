@@ -12,29 +12,22 @@ public class PlayerControllerUP : MonoBehaviour {
     private bool grounded;
     private bool canJump;
     private bool canDoubleJump;
-    private Animator _animator;
-
-    private void Start()
-    {
-        // Guardamos la referencia al Animator para no tener que buscarla en cada colisión.
-        _animator = GetComponentInParent<PlayerController>().GetComponent<Animator>();
-    }
 
     // Salto solo cuando pisa el suelo
     private void OnCollisionEnter2D(Collision2D collision) {
         if (collision.transform.tag == "Ground" || collision.transform.tag == "Water") {
-            _animator.SetBool("jumping", false);
+            GetComponentInParent<Animator>().SetBool("jumping", false);
             canJump = true;
             canDoubleJump = true;
         }
+
     }
 
     private void OnCollisionExit2D(Collision2D collision) {
         if (collision.transform.tag == "Ground" || collision.transform.tag == "Water") {
-            if (_animator != null) {
-                _animator.SetBool("jumping", true);
-            }
+            GetComponentInParent<Animator>().SetBool("jumping", true);
         }
+
     }
 
     public bool getJump() {
